@@ -1,0 +1,41 @@
+			{% extends 'base.html' %}
+			{% block content %}
+
+			<!-- {% if api %}
+				{% if api == "Error..." %}
+					There was a problem loading this Quote,Are you sure the symbol is correct?
+				{% else %}
+					BSE
+					{{api}}					
+					
+				{% endif %}
+			{% endif %} -->
+
+			<table class="table table-bordered">
+		<thead>
+		<tr>
+		<th scope="col">#</th>
+		<th scope="col">Name of Stock</th>
+		<th scope="col">Price</th>
+		</tr>
+		</thead>
+		<tbody>
+
+{% for item in api.quoteResponse.result %}
+
+		<tr>
+		<th scope="row">1</th>
+		<td>{{item.longName}}</td>
+		<td>{{item.regularMarketPrice}}</td>
+		</tr>
+
+
+{% endfor %}
+		</tbody>
+		</table>
+
+
+
+			{%  endblock %}
+			
+		
