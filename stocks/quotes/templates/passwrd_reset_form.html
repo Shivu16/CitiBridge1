@@ -1,0 +1,21 @@
+  
+<h3>Enter new password</h3>
+
+<p>Please enter your new password twice so we can verify you typed it in correctly.</p>
+
+<form method="post">
+
+	{% csrf_token %}
+	{{form}}
+	<input type="Submit" name="Update Password">
+	
+</form>
+
+<!-- templates/registration/password_reset_confirm.html 
+<h2>Reset Password</h2>
+<h3>Enter your new password</h3>
+<form class="form" action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-lock4"></i> Change Password</button>
+</form>   --> 

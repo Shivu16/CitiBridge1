@@ -1,34 +1,30 @@
-			{% extends 'base.html' %}
-			{% block content %}
+{% extends 'base.html' %}
+{% block content %}
 
-			<!-- {% if api %}
-				{% if api == "Error..." %}
-					There was a problem loading this Quote,Are you sure the symbol is correct?
-				{% else %}
-					BSE
-					{{api}}					
-					
-				{% endif %}
-			{% endif %} -->
 
 			<table class="table table-bordered">
 		<thead>
 		<tr>
 		<th scope="col">#</th>
 		<th scope="col">Name of Stock</th>
-		<th scope="col">Price</th>
+		<th scope="col">NSE BID</th>
+		<th scope="col">BSE BID</th>
+		<th scope="col">NSE ASK</th>
+		<th scope="col">BSE ASK</th>
+		<th scope="col">Price DIfference</th>
+		<th scope="col">Final Profit</th>
 		</tr>
 		</thead>
 		<tbody>
 
-{% for item in api.quoteResponse.result %}
+{% for key,value in api.items %}
+<tr>
+	<th scope="row">{{ key }}</th>
+	{% for Key,Value in value.items %} 
+		<td>{{ Value }}</td>
 
-		<tr>
-		<th scope="row">1</th>
-		<td>{{item.longName}}</td>
-		<td>{{item.regularMarketPrice}}</td>
-		</tr>
-
+	{% endfor %}
+</tr>
 
 {% endfor %}
 		</tbody>
@@ -36,6 +32,5 @@
 
 
 
-			{%  endblock %}
+{%  endblock %}
 			
-		
